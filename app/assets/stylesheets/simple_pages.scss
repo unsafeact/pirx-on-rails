@@ -1,0 +1,81 @@
+// Place all the styles related to the simple_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  height:100%;
+}
+
+body {
+  height:100%;
+  font-family: sans-serif;
+  color: #404040;
+}
+
+h1, h2, h3 {
+  font-family: monospace;
+  text-shadow:
+  0 -1px 1px #999999,
+  0 1px 1px #FFFFFF;
+}
+
+h1, h2 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+.my-center {
+  text-align: center;
+}
+
+.my-main-content {
+  padding: 1em 1em 40px 1em;
+  // min-height: calc(100vh - 70px);
+}
+
+.my-float-clearer {
+  clear:left;
+}
+
+.my-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.66em;
+  color: #AAAAAA;
+  background-color: #f8f9fa;
+  padding: 1em;
+  text-align: center;
+}
+
+.my-col-wrapper {
+  width: 100%;
+}
+
+.my-columns {
+  width: 33.333%;
+  float: left;
+  padding-right: 1em;
+}
+
+@media only screen and (max-width: 600px) {
+    .my-columns {
+      width: 100%;
+      padding-top: 1em;
+    }
+}
+
+.my-image {
+  width: 100%;
+  height: auto;
+}
