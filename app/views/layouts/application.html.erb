@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>PirxOnRails</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Peter Pirx on Rails</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<body>
 
-  <body>
-    <%= yield %>
-  </body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <%= link_to "MyRailsApp", root_path, :class => "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <li><%= link_to "About", simple_pages_about_path, :class => "nav-link" %></li>
+        </li>
+        <li class="nav-item">
+          <li><%= link_to "Contact", simple_pages_contact_path, :class => "nav-link" %></li>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        ...where no man has gone before!
+      </span>
+    </div>
+  </nav>
+
+  <%= yield %>
+
+  <footer>
+    <div class = "my-footer">
+      &copy; 2018 Peter Pirx
+    </div>
+  </footer>
+
+</body>
 </html>
