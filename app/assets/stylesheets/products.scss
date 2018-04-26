@@ -1,3 +1,49 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.my-card {
+  float:none;
+  vertical-align: top;
+  display: inline-block;
+  width: 20rem;
+  border-width: thick;
+  padding: 1em;
+  margin: 0 2em 2em 0;
+}
+
+.my-product-image {
+  height: auto;
+}
+
+.my-btn {
+  color: #212529;
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+  font-weight:400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-decoration: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.my-btn--large {
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.my-btn--small {
+  padding: .25rem .5rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+#myNewProductBtn {
+  margin-bottom: 2em;
+}

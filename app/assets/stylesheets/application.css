@@ -1,15 +1,81 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+* vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
+
+* {
+  margin:0;
+  padding:0;
+}
+
+html {
+  height:100%;
+}
+
+body {
+  height:100%;
+  font-family: sans-serif;
+  color: #404040;
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: monospace;
+  text-shadow:
+  0 -1px 1px #999999,
+  0 1px 1px #FFFFFF;
+}
+
+h1, h2 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+.my-right {
+  float: right;
+}
+
+.my-center {
+  text-align: center;
+}
+
+.my-main-content {
+  padding: 1em 1em 40px 1em;
+}
+
+.my-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.66em;
+  color: #AAAAAA;
+  background-color: #f8f9fa;
+  padding: 1em;
+  text-align: center;
+}
+
+.my-float-clearer {
+  clear: left;
+}
+
+a:hover {
+  color: inherit;
+  background-color: inherit;
+  font-weight: bold;
+  text-decoration: none;
+}

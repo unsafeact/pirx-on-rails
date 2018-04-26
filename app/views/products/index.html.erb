@@ -1,31 +1,24 @@
-<p id="notice"><%= notice %></p>
+<h1>Only the best cobwebs!</h1>
 
-<h1>Products</h1>
+<% @products.each do |product| %>
+<div class="card my-card">
+  <%= image_tag(product.image_url, :class => "card-img-top my-product-image") %>
+  <!-- <img class="card-img-top" src= <%= product.image_url %> > -->
+  <div class="card-body">
+    <h5 class="card-title"><%= product.name %></h5>
+    <p class="card-text"><%= product.description %></p>
+    <div class = "my-right">
+      <%= link_to('Show', product, :class=>"my-btn my-btn--small" )%>
+      <%= link_to('Edit', edit_product_path(product), :class=>"my-btn my-btn--small" )%>
+      <%= link_to('Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"my-btn my-btn--small" )%>
+    </div>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Image url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% end %>
 
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.description %></td>
-        <td><%= product.image_url %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Product', new_product_path %>
+<div class="card my-card">
+  <div class="card-body my-center">
+    <%= link_to('New Product', new_product_path, :class => "my-btn my-btn--large", :id =>"myNewProductBtn") %>
+  </div>
+</div>
