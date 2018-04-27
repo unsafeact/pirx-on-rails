@@ -1,9 +1,42 @@
 <h1>Only the best cobwebs!</h1>
+<div  class="my-table-wrapper">
+<table class="my-table">
+  <tr>
+    <th>Product name</th>
+    <th>Description</th>
+    <th>URL</th>
+    <th>Action</th>
+    <th>Action</th>
+    <th>Action</th>
+  </tr>
+
+  <% @products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= product.description %></td>
+    <td><%= product.image_url %></td>
+    <td><%= link_to 'Show', product %></td>
+    <td><%= link_to 'Edit', edit_product_path(product) %></td>
+    <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <% end %>
+
+</table>
+</div>
+
 
 <% @products.each do |product| %>
 <div class="card my-card">
-  <%= image_tag(product.image_url, :class => "card-img-top my-product-image") %>
-  <!-- <img class="card-img-top" src= <%= product.image_url %> > -->
+
+  <%= if product.image_url.present?
+    image_tag(product.image_url, :class => "card-img-top my-product-image")
+  else
+    image_tag("http://media.istockphoto.com/photos/kitten-on-a-white-background-picture-id511458158?k=6&m=511458158&s=170667a&w=0&h=YS27-I0nj5x89iDRUZ2YxE77hEghPb0HNCWwPCrMmn8=", :class => "card-img-top my-product-image")
+  end %>
+
+  <%#= image_tag(product.image_url, :class => "card-img-top my-product-image") %>
+
+
   <div class="card-body">
     <h5 class="card-title"><%= product.name %></h5>
     <p class="card-text"><%= product.description %></p>
