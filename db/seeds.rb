@@ -5,5 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Product.create(name: "seed-generated product 1", description: "Created by seeds.rb with a default display image from index.html.erb")
-Product.create(name: "seed-generated product 2", description: "Created by seeds.rb with a default display image from index.html.erb")
+Product.create(name: "new seed-generated product 1", description: "Created by seeds.rb with a default display image from index.html.erb")
+Product.create(name: "new seed-generated product 2", description: "Created by seeds.rb with a default display image from index.html.erb")
