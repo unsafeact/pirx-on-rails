@@ -2,12 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$my-border-color: #EEE;
+
 .my-card {
   float:none;
   vertical-align: top;
   display: inline-block;
   width: 20rem;
-  border-width: thick;
+  border-width: 3px;
+  border-color: $my-border-color;
   padding: 1em;
   margin: 0 2em 2em 0;
 }
@@ -19,7 +22,7 @@
 .my-btn {
   color: #212529;
   background-color: #f8f9fa;
-  border-color: #f8f9fa;
+  border-color: $my-border-color;
   font-weight:400;
   text-align: center;
   white-space: nowrap;
@@ -29,7 +32,7 @@
   padding: .375rem .75rem;
   line-height: 1.5;
   border-radius: .25rem;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transiton: all .15s ease-in-out;
 }
 
 .my-btn--large {
@@ -51,10 +54,8 @@
 .my-table-wrapper {
   height: 10rem;
   overflow-y: scroll;
-  border: rgba(222,222,222,1);
+  border: 3px solid $my-border-color;
   border-radius: .25rem;
-  border-style: solid;
-  border-width: 3px;
   padding: 0.5em;
   margin-bottom: 2em;
 }

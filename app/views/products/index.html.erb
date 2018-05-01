@@ -3,41 +3,7 @@
 <h3>Products cards</h3>
 
 <% @products.each do |product| %>
-<div class="card my-card">
-
-  <%= if product.image_url.present?
-    image_tag(product.image_url, :class => "card-img-top my-product-image")
-  else
-    image_tag("mask.png", :class => "card-img-top my-product-image")
-  end %>
-
-  <div class="card-body">
-    <h5 class="card-title"><%= product.name %></h5>
-    <p class="card-text"><%= product.description %></p>
-
-    <%if !product.colour.present?
-      product.colour = "unknown"
-    end%>
-    <p class="card-text"><%= product.colour %> colour</p>
-
-    <hr>
-
-    <%if !product.price.present?
-      postfix = " currently sold"
-    else
-      postfix = " EUR"
-    end%>
-
-    <p class="card-text"><%= product.price.to_s  +  postfix%></p>
-
-    <div class = "my-right">
-      <%= link_to('Show', product, :class=>"my-btn my-btn--small" )%>
-      <%= link_to('Edit', edit_product_path(product), :class=>"my-btn my-btn--small" )%>
-      <%= link_to('Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"my-btn my-btn--small" )%>
-    </div>
-  </div>
-</div>
-
+  <%= render partial: 'shared/my-product-card', locals: {myProduct: product, includeButtons: true} %>
 <% end %>
 
 <div class="card my-card">

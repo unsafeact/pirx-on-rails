@@ -1,0 +1,38 @@
+<div class="card my-card">
+
+  <%= if myProduct.image_url.present?
+    image_tag(myProduct.image_url, :class => "card-img-top my-product-image")
+  else
+    image_tag("mask.png", :class => "card-img-top my-product-image")
+  end %>
+
+  <div class="card-body">
+    <h5 class="card-title"><%= myProduct.name %></h5>
+    <p class="card-text"><%= myProduct.description %></p>
+
+    <%if !myProduct.colour.present?
+      myProduct.colour = "unknown"
+    end%>
+    <p class="card-text"><%= myProduct.colour %> colour</p>
+
+    <hr>
+
+    <%if !myProduct.price.present?
+      postfix = " currently sold"
+    else
+      postfix = " EUR"
+    end%>
+
+    <p class="card-text"><%= myProduct.price.to_s  +  postfix%></p>
+
+    <%if includeButtons%>
+      <div class = "my-right">
+        <%= link_to('Show', myProduct, :class=>"my-btn my-btn--small" )%>
+        <%= link_to('Edit', edit_product_path(myProduct), :class=>"my-btn my-btn--small" )%>
+        <%= link_to('Destroy', myProduct, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"my-btn my-btn--small" )%>
+      </div>
+    <%end%>
+
+  </div>
+
+</div>

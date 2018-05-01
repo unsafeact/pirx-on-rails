@@ -1,0 +1,5 @@
+<%# myProduct = @featured_product  %>
+
+<h2>Featured Product:</h2>
+
+<%= render partial: 'shared/my-product-card', locals: {myProduct: @featured_product, includeButtons: false} %>
