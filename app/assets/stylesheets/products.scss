@@ -4,6 +4,10 @@
 
 $my-border-color: #EEE;
 
+.my-products {
+  padding-bottom: 2em;
+}
+
 .my-card {
   float:none;
   vertical-align: top;
@@ -12,7 +16,7 @@ $my-border-color: #EEE;
   border-width: 3px;
   border-color: $my-border-color;
   padding: 1em;
-  margin: 0 2em 2em 0;
+  margin: 0;
 }
 
 .my-product-image {

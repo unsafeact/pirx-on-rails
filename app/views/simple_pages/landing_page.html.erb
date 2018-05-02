@@ -1,4 +1,21 @@
-<%# myProduct = @featured_product  %>
 <h1>Home of the best cobwebs</h1>
-<h2>Featured Product:</h2>
-<%= render partial: 'shared/my-product-card', locals: {myProduct: @featured_product, includeButtons: false} %>
+<h2>Featured Products:</h2>
+
+<div id="myProductCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="4000">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <% for ii in 0..@products.length-1%>
+      <li data-target="#myProductCarousel" data-slide-to= "<%=ii%>" <%= "class = active" if ii == 0  %>></li>
+    <%end%>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <% @products.each do |product| %>
+      <div class="carousel-item<%= " active" if product == @products.first %>">
+        <%= render partial: 'shared/my-product-card', locals: {myProduct: product, includeButtons: false} %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

@@ -2,13 +2,15 @@
 
 <h3>Products cards</h3>
 
+<div class = "my-products">
 <% @products.each do |product| %>
   <%= render partial: 'shared/my-product-card', locals: {myProduct: product, includeButtons: true} %>
-<% end %>
+  <% end %>
 
-<div class="card my-card">
-  <div class="card-body my-center">
-    <%= link_to('New Product', new_product_path, :class => "my-btn my-btn--large", :id =>"myNewProductBtn") %>
+  <div class="card my-card">
+    <div class="card-body my-center">
+      <%= link_to('New Product', new_product_path, :class => "my-btn my-btn--large", :id =>"myNewProductBtn") %>
+    </div>
   </div>
 </div>
 

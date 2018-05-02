@@ -19,3 +19,58 @@
   width: 100%;
   height: auto;
 }
+
+#myProductCarousel {
+  display: inline-block;
+}
+
+
+.carousel-indicators {
+  top: -7px;
+  position: absolute;
+  // white-space: nowrap;
+}
+
+ol.carousel-indicators li,
+ol.carousel-indicators li.active {
+
+  float: left;
+  width: 10px;
+  height: 10px;
+  margin: 3px;
+  border-radius: 50%;
+  border: 0;
+  background: #DDD;
+}
+
+ol.carousel-indicators li.active {
+  background: #444444;
+}
+
+// Until Bootstrap 4.1 brings fading transitions:
+
+.carousel-fade .carousel-item {
+ opacity: 0;
+ transition-duration: 1s;
+ transition-property: opacity;
+}
+
+.carousel-fade  .carousel-item.active,
+.carousel-fade  .carousel-item-next.carousel-item-left,
+.carousel-fade  .carousel-item-prev.carousel-item-right {
+  opacity: 1;
+}
+
+.carousel-fade .active.carousel-item-left,
+.carousel-fade  .active.carousel-item-right {
+ opacity: 0;
+}
+
+.carousel-fade  .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item.active,
+.carousel-fade .active.carousel-item-left,
+.carousel-fade  .active.carousel-item-prev {
+ transform: translateX(0);
+ transform: translate3d(0, 0, 0);
+}
