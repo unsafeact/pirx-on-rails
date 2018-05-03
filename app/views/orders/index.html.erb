@@ -1,1 +1,17 @@
-<p>Nothing's been ordered yet because you can't order...</p>
+<h1> Your orders </h1>
+
+<hr>
+
+<div class="row">
+  <% @orders.each do |order| %>
+    <div class="col-sm-2 col-md-4 my-orders">
+      <p><strong>Order # <%= order.id %>:</strong><p>
+      <p><%= order.product.name%></p>
+      <p><%= order.product.description%></p>
+      <p>€ <%= order.product.price%></p>
+      <%= link_to('Show', order_path(order) , :class => "btn btn-light btn-sm")%>
+    </div><!-- /col -->
+  <% end %>
+</div>
+
+<hr>

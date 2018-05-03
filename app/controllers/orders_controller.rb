@@ -1,8 +1,9 @@
 class OrdersController < ApplicationController
   def index
-  end
+    @orders = Order.includes(:product).all  end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   def new
