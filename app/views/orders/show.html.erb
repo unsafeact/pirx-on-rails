@@ -2,6 +2,12 @@
   <h1>Order Information</h1>
   <p><strong>Order ID: </strong><%= @order.id %></p>
   <p><strong>Product Name: </strong><%= @order.product.name %></p>
-  <p><strong>Product Price: </strong><%= number_to_currency(@order.product.price/100.to_f) %></p>
-  <p><strong>Total Price: </strong><%= number_to_currency(@order.total/100.to_f) %></p>
+
+    <% if @order.product.price.present?%>
+         <p><strong>Product Price: </strong><%= number_to_currency(@order.product.price/100.to_f) %></p>
+         <p><strong>Total Price: </strong><%= number_to_currency(@order.total/100.to_f) %></p>
+    <% else %>
+         <em>This item is currently not available. <br> Ask the backend programmer to prevent the ordering of unavailable items!</em>
+    <% end %>
+
 </div>
