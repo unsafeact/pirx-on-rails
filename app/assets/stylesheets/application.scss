@@ -14,8 +14,7 @@
 *= require_self
 */
 
-$myGray1: #EEE;
-
+$myGray1: #f8f9fa;
 
 * {
   margin:0;
@@ -73,7 +72,7 @@ h3 {
   width: 100%;
   font-size: 0.66em;
   color: #AAAAAA;
-  background-color: myGray2;
+  background-color: $myGray1;
   padding: 1em 0 0 0;
   text-align: center;
 }

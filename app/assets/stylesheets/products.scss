@@ -2,8 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$myGray1: #EEE;
-$myGray2: #f8f9fa;
+$myGray1: #f8f9fa;
 
 .my-products {
   padding-bottom: 2em;
@@ -17,7 +16,7 @@ $myGray2: #f8f9fa;
   height: 26rem;
   overflow-y: scroll;
   border-width: 3px;
-  border-color: $myGray2;
+  border-color: $myGray1;
   padding: 1em;
   margin: 1em;
   color: #333333;
@@ -44,7 +43,7 @@ $myGray2: #f8f9fa;
 .my-btn {
   color: #212529;
   background-color: $myGray1;
-  border-color: $myGray2;
+  border-color: $myGray1;
   font-weight:400;
   text-align: center;
   white-space: nowrap;
@@ -76,7 +75,7 @@ $myGray2: #f8f9fa;
 #myTableWrapper {
   height: 10rem;
   overflow-y: scroll;
-  border: 3px solid $myGray2;
+  border: 3px solid $myGray1;
   border-radius: .25rem;
   padding: 0.5em;
   margin: 0 0 2em 0;
