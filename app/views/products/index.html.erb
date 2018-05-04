@@ -1,45 +1,49 @@
 <h1>See all of our cobwebs!</h1>
 
-<h3>Products cards</h3>
+<div class = "row">
 
-<div class = "my-products">
-<% @products.each do |product| %>
-  <%= render partial: 'shared/my-product-card', locals: {myProduct: product, includeButtons: true} %>
-  <% end %>
+  <div class = "my-products">
+    <% @products.each do |product| %>
+    <%= render partial: 'shared/my-product-card', locals: {myProduct: product, includeButtons: true} %>
+    <% end %>
 
-  <div class="card my-card">
-    <div class="card-body my-center">
-      <%= link_to('New Product', new_product_path, :class => "my-btn my-btn--large", :id =>"myNewProductBtn") %>
-    </div>
   </div>
 </div>
 
-<h3>Products table</h3>
+<div class = "my-new-product-btn">
+  <%= link_to('Create a new product', new_product_path, :class => "my-btn my-btn--large", :id =>"myNewProductBtn") %>
+</div>
 
-<div  class="my-table-wrapper">
-  <table class="my-table">
-    <tr>
-      <th>Product name</th>
-      <th>Description</th>
-      <th>Colour</th>
-      <th>URL</th>
-      <th>Price</th>
-      <th>Action</th>
-      <th>Action</th>
-      <th>Action</th>
-    </tr>
+<div class = "my-product-table">
+  <a class="my-btn my-btn--large" data-toggle="collapse" href="#myTableWrapper" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Toggle all products table
+  </a>
 
-    <% @products.each do |product| %>
-    <tr>
-      <td><%= product.name %></td>
-      <td><%= product.description %></td>
-      <td><%= product.colour %></td>
-      <td><%= product.image_url %></td>
-      <td><%= product.price %></td>
-      <td><%= link_to 'Show', product %></td>
-      <td><%= link_to 'Edit', edit_product_path(product) %></td>
-      <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    <% end %>
-  </table>
+  <div class="collapse" id = "myTableWrapper">
+    <table class="my-table">
+      <tr>
+        <th>Product name</th>
+        <th>Description</th>
+        <th>Colour</th>
+        <th>URL</th>
+        <th>Price</th>
+        <th>Action</th>
+        <th>Action</th>
+        <th>Action</th>
+      </tr>
+
+      <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.description %></td>
+        <td><%= product.colour %></td>
+        <td><%= product.image_url %></td>
+        <td><%= product.price %></td>
+        <td><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
 </div>

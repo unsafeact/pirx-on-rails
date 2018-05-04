@@ -15,3 +15,14 @@
 //= require turbolinks
 //= require jquery3
 //= require_tree .
+
+// Awkward way to restart the CSS animation...
+$(document).ready(function(){
+  $("#myProductCarousel").on('slide.bs.carousel', function () {
+    // restart animation
+    var el = document.getElementById('featuredBadge');
+    el.classList.remove("my-badge-ani");
+    void el.offsetWidth;
+    el.classList.add("my-badge-ani");
+  });
+});

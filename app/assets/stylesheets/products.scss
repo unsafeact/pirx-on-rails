@@ -2,7 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$my-border-color: #EEE;
+$myGray1: #EEE;
+$myGray2: #f8f9fa;
 
 .my-products {
   padding-bottom: 2em;
@@ -13,20 +14,37 @@ $my-border-color: #EEE;
   vertical-align: top;
   display: inline-block;
   width: 20rem;
+  height: 26rem;
+  overflow-y: scroll;
   border-width: 3px;
-  border-color: $my-border-color;
+  border-color: $myGray2;
   padding: 1em;
-  margin: 0;
+  margin: 1em;
+  color: #333333;
+}
+
+.my-card::-webkit-scrollbar {
+   width: 5px;
+}
+
+.my-card::-webkit-scrollbar-thumb {
+   border-radius: 10px;
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 
 .my-product-image {
   height: auto;
 }
 
+.my-new-product-btn {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
 .my-btn {
   color: #212529;
-  background-color: #f8f9fa;
-  border-color: $my-border-color;
+  background-color: $myGray1;
+  border-color: $myGray2;
   font-weight:400;
   text-align: center;
   white-space: nowrap;
@@ -55,13 +73,13 @@ $my-border-color: #EEE;
   margin-bottom: 2em;
 }
 
-.my-table-wrapper {
+#myTableWrapper {
   height: 10rem;
   overflow-y: scroll;
-  border: 3px solid $my-border-color;
+  border: 3px solid $myGray2;
   border-radius: .25rem;
   padding: 0.5em;
-  margin-bottom: 2em;
+  margin: 0 0 2em 0;
 }
 
 .my-table, td, th {

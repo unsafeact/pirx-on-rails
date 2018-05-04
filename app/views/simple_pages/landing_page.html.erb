@@ -1,21 +1,42 @@
-<h1>Home of the best cobwebs</h1>
-<h2>Featured Products:</h2>
+<div class = "row my-column-wrapper">
 
-<div id="myProductCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="4000">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <% for ii in 0..@products.length-1%>
-      <li data-target="#myProductCarousel" data-slide-to= "<%=ii%>" <%= "class = active" if ii == 0  %>></li>
-    <%end%>
-  </ol>
+  <div class = "col-sm-12 col-md-4 my-intro-text">
+    <h1>Best Cobwebs</h1>
+    <p>Here at <em>The Cobweb Company</em> we serve only the finest and most delicate cobwebs from all over the world! </p>
+    <p>
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    </p>
+  </div> <!-- end  column-->
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <% @products.each do |product| %>
-      <div class="carousel-item<%= " active" if product == @products.first %>">
-        <%= render partial: 'shared/my-product-card', locals: {myProduct: product, includeButtons: false} %>
+  <div class = "col-sm-12 col-md-4 my-intro-text">
+    <h1>Best Service</h1>
+    <p> We keep your cobwebs fresh and shiny! Because we care and we can!</p>
+    <p>
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    </p>
+  </div> <!-- end  column-->
+
+  <div class = "col-sm-12 col-md-4">
+    <div class = "my-badge-ani" id = "featuredBadge">Featured products</div>
+
+    <div id = "myProductCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="4000">
+
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <% for ii in 0..@products.length-1%>
+        <li data-target="#myProductCarousel" data-slide-to= "<%=ii%>" <%= "class = active" if ii == 0  %>></li>
+        <%end%>
+      </ol>
+
+     <!-- Cards -->
+      <div class="carousel-inner">
+        <% @products.each do |product| %>
+        <div class="carousel-item<%= " active" if product == @products.first %>">
+          <%= render partial: 'shared/my-product-card', locals: {myProduct: product, includeButtons: false} %>
+        </div>
+        <% end %>
       </div>
-    <% end %>
-  </div>
 
-</div>
+    </div> <!-- end  myProductCarousel-->
+  </div> <!-- end  column-->
+</div> <!-- end  row-->

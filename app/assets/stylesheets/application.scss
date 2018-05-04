@@ -14,6 +14,7 @@
 *= require_self
 */
 
+$myGray1: #EEE;
 
 
 * {
@@ -27,16 +28,22 @@ html {
 
 body {
   height:100%;
-  font-family: sans-serif;
-  color: #404040;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  color: #DDD;
   margin: 0;
+  background-image: image-url("cobweb-bg.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-color: rgba(0,0,0,0.95);
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
 }
 
 h1, h2, h3 {
-  font-family: monospace;
+  font-family: "Courier New", Courier, monospace;
   text-shadow:
-  0 -1px 1px #999999,
-  0 1px 1px #FFFFFF;
+  0 -1px 1px blue,
+  0 0 10px white;
 }
 
 h1, h2 {
@@ -66,8 +73,8 @@ h3 {
   width: 100%;
   font-size: 0.66em;
   color: #AAAAAA;
-  background-color: #f8f9fa;
-  padding: 1em;
+  background-color: myGray2;
+  padding: 1em 0 0 0;
   text-align: center;
 }
 

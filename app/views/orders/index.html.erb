@@ -2,7 +2,7 @@
 <hr>
 <div class="row">
   <% @orders.each do |order| %>
-    <div class="col-sm-2 col-md-4 my-orders">
+    <div class="col-sm-6 col-md-4 col-lg-2 my-orders">
       <p><strong>Order # <%= order.id %>:</strong><p>
       <p><%= order.product.name%></p>
       <p><%= order.product.description%></p>
