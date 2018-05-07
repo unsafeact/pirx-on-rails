@@ -3,7 +3,7 @@
   <% begin
        myImage = image_tag(myProduct.image_url)
      rescue
-       myImage = image_tag("no-image.gif", :class => "card-img-top my-product-image")
+       myImage = image_tag("mask.png", :class => "card-img-top my-product-image")
      else
        myImage = image_tag(myProduct.image_url, :class => "card-img-top my-product-image")
      end %>
