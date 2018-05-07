@@ -5,8 +5,9 @@
 <%= begin
      myImage = image_tag(@product.image_url, :class => "my-product-image")
    rescue
-     myImage = image_tag("no-image.jpg", :class => "card-img-top my-product-image")
+     myImage = image_tag("no-image.gif", :class => "card-img-top my-product-image")
    end %>
+
 </div>
 
 <p>
