@@ -1,5 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<div id = "showProductImage">
+
+<%= begin
+     myImage = image_tag(@product.image_url, :class => "my-product-image")
+   rescue
+     myImage = image_tag("no-image.jpg", :class => "card-img-top my-product-image")
+   end %>
+</div>
+
 <p>
   <strong>Name:</strong>
   <%= @product.name %>

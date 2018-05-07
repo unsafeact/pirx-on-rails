@@ -1,18 +1,25 @@
 <div class="card my-card">
 
-  <%= if myProduct.image_url.present?
-    image_tag(myProduct.image_url, :class => "card-img-top my-product-image")
-  else
-    image_tag("mask.png", :class => "card-img-top my-product-image")
-  end %>
+  <% begin
+       myImage = image_tag(myProduct.image_url)
+     rescue
+       myImage = image_tag("no-image.jpg", :class => "card-img-top my-product-image")
+     else
+       myImage = image_tag(myProduct.image_url, :class => "card-img-top my-product-image")
+     end %>
 
-  <div class="card-body">
-    <h5 class="card-title"><%= myProduct.name %></h5>
-    <p class="card-text"><%= myProduct.description %></p>
+  <%= link_to(myImage, myProduct) %>
+
+
+  <div class="card-body  my-product-description">
+    <h5 class = "my-truncate"><%= link_to(myProduct.name, myProduct, :class=>"card-title" )%></h5>
+
+    <p class="card-text my-truncate"><%= myProduct.description %></p>
 
     <%if !myProduct.colour.present?
       myProduct.colour = "unknown"
     end%>
+
     <p class="card-text"><%= myProduct.colour %> colour</p>
 
     <hr>

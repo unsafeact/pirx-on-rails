@@ -25,4 +25,3 @@ $(document).ready(function(){
     void el.offsetWidth;
     el.classList.add("my-badge-ani");
   });
-});
