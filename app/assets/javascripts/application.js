@@ -12,6 +12,7 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= require popper
 //= require turbolinks
 //= require jquery3
 //= require_tree .
@@ -25,4 +26,9 @@ $(document).ready(function(){
     void el.offsetWidth;
     el.classList.add("my-badge-ani");
   });
+
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
 });

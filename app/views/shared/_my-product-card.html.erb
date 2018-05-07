@@ -12,9 +12,11 @@
 
 
   <div class="card-body  my-product-description">
-    <h5 class = "my-truncate"><%= link_to(myProduct.name, myProduct, :class=>"card-title" )%></h5>
+    <h5 class = "my-truncate" data-toggle ="tooltip" data-placement="right" title = "<%=myProduct.name%>">
+    <%= link_to(myProduct.name, myProduct, :class=>"card-title" )%></h5>
 
-    <p class="card-text my-truncate"><%= myProduct.description %></p>
+    <p class="card-text my-truncate" data-toggle ="tooltip" data-placement="right" title = "<%= myProduct.description %>">
+    <%= myProduct.description %></p>
 
     <%if !myProduct.colour.present?
       myProduct.colour = "unknown"

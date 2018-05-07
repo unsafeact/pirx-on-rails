@@ -21,13 +21,8 @@ $myGray1: #f8f9fa;
   color: #333333;
 }
 
-.my-card::-webkit-scrollbar {
-   width: 5px;
-}
-
-.my-card::-webkit-scrollbar-thumb {
-   border-radius: 10px;
-   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+.tooltip-inner {
+   text-align: left;
 }
 
 .my-product-image {
