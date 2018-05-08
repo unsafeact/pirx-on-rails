@@ -44,36 +44,21 @@ $myGray1: #f8f9fa;
   padding-bottom: 2em;
 }
 
-.my-btn {
-  color: #212529;
-  background-color: $myGray1;
-  border-color: $myGray1;
-  font-weight:400;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  text-decoration: none;
-  border: 1px solid transparent;
-  padding: .375rem .75rem;
-  line-height: 1.5;
-  border-radius: .25rem;
-  transiton: all .15s ease-in-out;
+.my-nav-buttons {
+  padding: 2em 0 0 0;
+  text-align: left;
 }
 
-.my-btn--large {
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.my-btn--small {
-  padding: .25rem .5rem;
-  font-size: 0.75rem;
-  line-height: 1.5;
-}
+.my-form {
+  display: inline-block;
+ }
 
 #myNewProductBtn {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
+}
+
+#myFormSubmitBtn {
+  margin: 1em;
 }
 
 #myTableWrapper {

@@ -1,43 +1,51 @@
 <%= form_with(model: product, local: true) do |form| %>
-  <% if product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+<% if product.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
-      <ul>
-      <% product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <ul>
+    <% product.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<form>
+  <div class="row">
+  <div class="col-md-6 form-group">
+    <%= form.label :name, class: "control-label" %>
+      <%= form.text_field :name , class: "form-control" %>
+  </div>
+
+    <div class="col-md-6 form-group">
+      <%= form.label :image_url, class: "control-label" %>
+        <%= form.text_field :image_url, class: "form-control" %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="col-md-6 form-group">
+    <%= form.label :description, class: "control-label" %>
+      <%= form.text_area :description , class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+
+  <div class="col-md-3 form-group">
+    <%= form.label :color, class: "control-label" %>
+      <%= form.text_field :colour, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
+  <div class="col-md-3 form-group">
+    <%= form.label :price, class: "control-label" %>
+      <%= form.text_field :price, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :color %><br>
-    <%= form.text_field :colour %>
-  </div>
+</div>
 
-  <div class="field">
-    <%= form.label :price %><br>
-    <%= form.text_field :price %>
-  </div>
+ <div class="row">
+   <%= form.submit "Submit", class: "btn btn-light", id: "myFormSubmitBtn" %>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+
+</form>
 
 <% end %>

@@ -29,6 +29,23 @@
         <li class="nav-item">
           <li><%= link_to "Contact", simple_pages_contact_path, :class => "nav-link" %></li>
         </li>
+
+        <li class="nav-item d-flex align-items-center" data-toggle ="tooltip" data-placement="right" title = "Search products">
+
+          <%#= fa_icon "search", text: "Search" %>
+          <%= form_with(url: products_path, method: 'get', local: true, class: "d-flex my-search-form") do |form| %>
+          <%#= form.label :q, 'Search for:' %>
+          <%= form.text_field :q, id: 'q', value: params[:q] %>
+          <%#= form.submit 'search', class: "btn my-btn my-btn--small" %>
+
+          <%= button_tag type: 'submit', class: "btn my-btn my-btn--small nav-link d-flex", id: "mySearchBtn" do %>
+          <i class="fa fa-search" aria-hidden="true"></i>
+          <% end %>
+
+
+          <% end %>
+        </li>
+
       </ul>
       <span class="navbar-text">
         ...stay attached!
