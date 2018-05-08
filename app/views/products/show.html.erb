@@ -1,39 +1,51 @@
 <p id="notice"><%= notice %></p>
 
-<div id = "showProductImage">
+<div class = "col-md-6">
 
-<%= begin
-     image_tag(@product.image_url, :class => "my-product-image")
-   rescue
-     image_tag("no-image.gif", :class => "my-product-image")
-   end %>
+  <div class="card my-show-card">
 
+  <%= begin
+    image_tag(@product.image_url, :class => "my-show-image")
+  rescue
+    image_tag("no-image.gif", :class => "my-show-image")
+  end %>
+
+  <div class="card-body">
+    <h5 class="card-title"> <%= @product.name %></h5>
+
+    <p class="card-text">
+      <strong>Name:</strong>
+      <%= @product.name %>
+    </p>
+
+    <p class="card-text">
+
+      <strong>Description:</strong>
+      <%= @product.description %>
+    </p>
+
+    <p class="card-text">
+
+      <strong>Image url:</strong>
+      <%= @product.image_url %>
+    </p>
+
+    <p class="card-text">
+
+      <strong>Colour UK:</strong>
+      <%= @product.colour %>
+    </p>
+
+    <p class="card-text">
+
+      <strong>Price:</strong>
+      <%= @product.price %>
+    </p>
+
+  </div>
 </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
-</p>
-
-<p>
-  <strong>Colour UK:</strong>
-  <%= @product.colour %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+</div>
 
 <div class = "my-nav-buttons">
   <%= link_to 'Edit', edit_product_path(@product), class: "btn-sm btn-light" %> |
