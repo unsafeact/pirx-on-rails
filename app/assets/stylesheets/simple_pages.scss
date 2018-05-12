@@ -131,3 +131,21 @@ ol.carousel-indicators li.active {
   75% {transform: rotate(-22deg);}
   100% {transform: rotate(-20deg);}
 }
+
+
+.my-received {
+  display: flex;
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: center;
+  }
+
+.my-received__message {
+  max-width: 50%;
+  // background-color: red;
+  text-align: center;
+}
