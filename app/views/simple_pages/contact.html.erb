@@ -1,4 +1,27 @@
 <div class = "my-main-content">
-  <h1>Contact</h1>
-  <p>Send an email to: <a class="my-btn" href="mailto:cobwebs@ruby.app">cobwebs@ruby.app</a></p>
+  <h1>Contact Us</h1>
+
+  <%= flash[:notice] %>
+
+  <%= form_with(url:"/simple_pages/thank_you", method: "post", local: true) do |form| %>
+  <div class="row">
+    <div class="form-group col-md-6 ">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "form-control", placeholder: "Enter Name" %>
+    </div>
+    <div class="form-group col-md-6 ">
+      <%= form.label :email %>
+      <%= form.text_field :email, class: "form-control", placeholder: "Enter Email" %>
+    </div>
+    <div class="form-group col-md-6 ">
+      <%= form.label :message %>
+      <%= form.text_area :message, class: "form-control", placeholder: "Enter Message", rows: 5 %>
+    </div>
+  </div>
+
+  <div class="row">
+    <%= form.submit "Send", class: "form_label btn btn-light", id: "myContactSendBtn" %>
+ </div>
+
+  <% end %>
 </div>

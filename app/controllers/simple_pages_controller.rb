@@ -12,8 +12,16 @@ class SimplePagesController < ApplicationController
   end
 
   def contact
-    # sleep 1
-    redirect_to root_path, notice: "Sorry, no contact! You have been redirected!"
+  end
+
+  def thank_you
+    @name = params[:name]
+    @email = params[:email]
+    @message = params[:message]
+    ActionMailer::Base.mail(from: @email,
+      to: 'your-email@example.com',
+      subject: "A new contact form message from #{@name}",
+      body: @message).deliver_now
   end
 
 end

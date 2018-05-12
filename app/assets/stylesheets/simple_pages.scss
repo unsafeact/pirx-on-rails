@@ -85,6 +85,7 @@ ol.carousel-indicators li.active {
   position: absolute;
   top: 1em;
   left: -1em;
+  transform: rotate(-20deg);
   -ms-transform: rotate(-20deg); /* IE 9 */
   -webkit-transform: rotate(-20deg); /* Safari */
   z-index: 1000;
