@@ -32,26 +32,36 @@
 
         <li class="nav-item d-flex align-items-center" data-toggle ="tooltip" data-placement="right" title = "Search products">
 
-          <%#= fa_icon "search", text: "Search" %>
           <%= form_with(url: products_path, method: 'get', local: true, class: "d-flex my-search-form") do |form| %>
-          <%#= form.label :q, 'Search for:' %>
-          <%= form.text_field :q, id: 'q', value: params[:q] %>
-          <%#= form.submit 'search', class: "btn my-btn my-btn--small" %>
-
-          <%= button_tag type: 'submit', class: "btn my-btn my-btn--small nav-link d-flex", id: "mySearchBtn" do %>
-          <i class="fa fa-search" aria-hidden="true"></i>
-          <% end %>
-
-
+            <%= form.text_field :q, id: 'q', value: params[:q] %>
+            <%= button_tag type: 'submit', class: "btn my-btn my-btn--small nav-link d-flex", id: "mySearchBtn" do %>
+              <i class="fa fa-search" aria-hidden="true"></i>
+            <% end %>
           <% end %>
         </li>
 
       </ul>
-      <span class="navbar-text">
-        ...stay attached!
-      </span>
+
+      <ul class="navbar-nav pull-right">
+        <li class="nav-item">
+        <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path, method: :delete, :class => "nav-link") %>
+        <% else %>
+          <%= link_to('Login', new_user_session_path, :class => "nav-link") %>
+        <% end %>
+        </li>
+      </ul>
+
     </div>
   </nav>
+
+  <!-- <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p> -->
+
+  <% flash.each do |key, value| %>
+    <div class="alert alert-warning alert-<%= key %>"><%= value %></div>
+  <% end %>
+
 
   <div class = "my-main-content">
     <%= yield %>
