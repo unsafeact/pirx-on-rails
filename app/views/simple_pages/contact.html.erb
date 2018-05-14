@@ -1,11 +1,10 @@
-<div class = "my-main-content">
-  <h1>Contact Us</h1>
+<h1>Contact Us</h1>
 
-  <%= flash[:notice] %>
+<%= flash[:notice] %>
 
-  <%= form_with(url:"/simple_pages/thank_you", method: "post", local: true) do |form| %>
+<%= form_with(url:"/simple_pages/thank_you", method: "post", local: true) do |form| %>
   <div class="row">
-    <div class="form-group col-md-6 ">
+    <div class="form-group col-md-6">
       <%= form.label :name %>
       <%= form.text_field :name, class: "form-control", placeholder: "Enter Name", required: true %>
     </div>
@@ -20,8 +19,7 @@
   </div>
 
   <div class="row">
-    <%= form.submit "Send", class: "form_label btn btn-light", id: "myContactSendBtn" %>
- </div>
+    <%= form.submit "Send", class: "form_label btn btn-light my-margin-left", id: "myContactSendBtn" %>
+  </div>
 
-  <% end %>
-</div>
+<% end %>
