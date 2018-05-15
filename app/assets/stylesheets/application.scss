@@ -161,3 +161,20 @@ a:hover {
   padding: 1em;
   border-bottom: 1px solid #aaa;
 }
+
+.my-error-explanation {
+  display: inline-block;
+  color: white;
+  background-color: inherit;
+  border: 3px dashed red;
+  padding: 1em;
+  margin-bottom: 2em;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.my-error-explanation li {
+  color: red;
+}

@@ -1,7 +1,8 @@
 <%= form_with(model: user, local: true) do |form| %>
 <% if user.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class = "my-error-explanation">
+<p><%=fa_stacked_icon "exclamation-triangle", base: "square-o"%>  
+<%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</p>
 
   <ul>
     <% user.errors.full_messages.each do |message| %>
@@ -33,11 +34,14 @@
     </div>
   </div>
 
-  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-
   <div class="row">
     <div class="form-group col-md-6">
-      <%= form.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+      <%= form.label :password %>
+
+      <%if change_password%>
+      <i>(leave blank if you don't want to change it)</i><br />
+      <%end%>
+
       <%= form.password_field :password, autocomplete: "off", class: "form-control" %>
       <% if @minimum_password_length %>
       <em><%= @minimum_password_length %> characters minimum</em>
@@ -52,22 +56,19 @@
     </div>
   </div>
 
+<%if change_password%>
   <div class="row">
     <div class="form-group col-md-6">
       <%= form.label :current_password %> <i>(we need your current password to confirm your changes)</i>
       <%= form.password_field :current_password, autocomplete: "off" , class: "form-control"%>
     </div>
   </div>
+<%end%>
 
-<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
   <div class="row">
     <%= form.submit "Submit", class: "btn btn-light my-form-submit-button" %>
   </div>
-
-
-  <%#= link_to "Change your password", edit_user_registration_path %>
-
 
 </form>
 
