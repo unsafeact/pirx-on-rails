@@ -23,16 +23,16 @@ $myGray1: #f8f9fa;
   padding:0;
 }
 
-html {
+html, body {
   height:100%;
 }
 
 body {
-  height:100%;
+  display: flex;
+  flex-direction: column;
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   color: #DDD;
   margin: 0;
-
 }
 
 
@@ -79,14 +79,21 @@ h3 {
 }
 
 .my-main-content {
-  padding: 1em 1em 40px 1em;
-  height: 100%;
+  flex: 1 0 auto;
+  padding: 1em;
+  // height: 100%;
+}
+
+#myNavBar {
+  flex-shrink: 0;
 }
 
 .my-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  flex-shrink: 0;
+
+  // position: absolute;
+  // bottom: 0;
+  // width: 100%;
   font-size: 0.66em;
   color: #AAAAAA;
   background-color: $myGray1;
