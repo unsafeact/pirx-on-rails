@@ -8,7 +8,7 @@
        myImage = image_tag(myProduct.image_url, class: "card-img-top my-product-image")
      end %>
 
-     <%# if myProduct.image_url.empty?
+     <% if myProduct.image_url.blank?
        myImage = image_tag("no-image.gif", class: "card-img-top my-product-image")
      end %>
 
