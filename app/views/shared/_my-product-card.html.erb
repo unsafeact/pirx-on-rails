@@ -8,8 +8,12 @@
        myImage = image_tag(myProduct.image_url, :class => "card-img-top my-product-image")
      end %>
 
-  <%= link_to(myImage, myProduct) %>
+     <% if myProduct.image_url.empty?
+       myImage = image_tag("no-image.gif", :class => "card-img-top my-product-image")
+     end %>
 
+
+  <%= link_to(myImage, myProduct) %>
 
   <div class="card-body  my-product-description">
     <h5 class = "my-truncate" data-toggle ="tooltip" data-placement="right" title = "<%=myProduct.name%>">

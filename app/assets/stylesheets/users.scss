@@ -1,3 +1,13 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#myUsersTable {
+  margin-bottom: 2em;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  border-radius: 5px;
+}
+
+#myUserOrdersList {
+  display:inline-block;
+}

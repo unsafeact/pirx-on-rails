@@ -2,5 +2,7 @@
 
 <%= render 'form', user: @user %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<div class = "my-nav-buttons">
+  <%= link_to 'Back', users_path, class: "btn-sm btn-light" %> |
+  <%= link_to 'Show', @user, class: "btn-sm btn-light" %>
+</div>

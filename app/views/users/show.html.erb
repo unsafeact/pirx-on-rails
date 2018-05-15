@@ -10,5 +10,29 @@
   <%= @user.last_name %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Orders:</strong>
+  <%#= @user.orders[0].product.name %>
+
+<% orders = @user.orders%>
+<%if orders.present?%>
+  <ol class="list-group" id = "myUserOrdersList">
+    <% orders.each_with_index do |order, index|%>
+      <li class="list-group-item"><%= link_to(orders[index].product.name, order_path(order))%></li>
+    <%end%>
+  </ol>
+<%end%>
+
+
+
+</p>
+
+<div class = "my-nav-buttons">
+  <%= link_to 'Back', users_path, class: "btn-sm btn-light" %> |
+  <%= link_to 'Edit', edit_user_path(@user), class: "btn-sm btn-light" %>
+</div>

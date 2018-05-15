@@ -105,11 +105,15 @@ h3 {
   clear: left;
 }
 
+a {
+  color: #666;
+}
+
 a:hover {
   color: inherit;
   background-color: inherit;
   font-style: italic;
- text-decoration: none;
+  text-decoration: none
 }
 
 .my-btn {
@@ -151,4 +155,9 @@ a:hover {
  position: relative;
  height: 1.5em;
  vertical-align: bottom;
+}
+
+.my-table, th, td {
+  padding: 1em;
+  border-bottom: 1px solid #aaa;
 }

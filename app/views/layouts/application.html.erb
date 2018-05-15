@@ -33,7 +33,7 @@
         <li class="nav-item d-flex align-items-center" data-toggle ="tooltip" data-placement="right" title = "Search products">
 
           <%= form_with(url: products_path, method: 'get', local: true, class: "d-flex my-search-form") do |form| %>
-            <%= form.text_field :q, id: 'q', value: params[:q] %>
+            <%= form.text_field :q, id: 'q', value: params[:q], class: "form-control" %>
             <%= button_tag type: 'submit', class: "btn my-btn my-btn--small nav-link d-flex", id: "mySearchBtn" do %>
               <i class="fa fa-search" aria-hidden="true"></i>
             <% end %>
