@@ -2,6 +2,9 @@ class OrdersController < ApplicationController
 
   before_action :authenticate_user!
 
+  # CanCanCan helper
+  load_and_authorize_resource
+  
   def index
     @orders = Order.includes(:product).all
   end

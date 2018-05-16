@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Your account info</h1>
+
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
@@ -20,16 +22,13 @@
   <%#= @user.orders[0].product.name %>
 
 <% orders = @user.orders%>
-<%if orders.present?%>
-  <ol class="list-group" id = "myUserOrdersList">
-    <% orders.each_with_index do |order, index|%>
-      <li class="list-group-item"><%= link_to(orders[index].product.name, order_path(order))%></li>
-    <%end%>
-  </ol>
-<%end%>
-
-
-
+  <%if orders.present?%>
+    <ol class="list-group" id = "myUserOrdersList">
+      <% orders.each_with_index do |order, index|%>
+        <li class="list-group-item"><%= link_to(orders[index].product.name, order_path(order))%></li>
+      <%end%>
+    </ol>
+  <%end%>
 </p>
 
 <div class = "my-nav-buttons">
