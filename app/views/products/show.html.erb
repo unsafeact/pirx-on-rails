@@ -1,9 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class = "row">
-
   <div class = "col-md-6">
-
     <div class="card my-show-card">
 
       <%= begin
@@ -21,60 +19,53 @@
         </p>
 
         <p class="card-text">
-
           <strong>Description:</strong>
           <%= @product.description %>
         </p>
 
         <p class="card-text">
-
           <strong>Image url:</strong>
           <%= @product.image_url %>
         </p>
 
         <p class="card-text">
-
           <strong>Colour UK:</strong>
           <%= @product.colour %>
         </p>
 
         <p class="card-text">
-
           <strong>Price:</strong>
           <%= @product.price %>
         </p>
 
+        <hr>
+        <p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div> </p>
+
       </div>
     </div>
+
+    <div class = "row">
+      <div class = "col-md-6">
+        <%= render 'new_comment' %>
+      </div>
+    </div>
+
+    <div class = "my-nav-buttons">
+      <%= link_to 'Edit', edit_product_path(@product), class: "btn-sm btn-light" %> |
+      <%= link_to 'Back', products_path, class: "btn-sm btn-light" %>
+    </div>
+
   </div>   <!-- end column -->
 
   <div class = "col-md-6">
-
-    <h2 class = "my-center"> User reviews </h2>
-
-    <div class = "my-user-reviews my-center">
+    <h2> User reviews </h2>
+    <div class = "my-user-review">
       <% if @product.comments.present?%>
-        <% @product.comments.each do |comment| %>
-          <div class = "my-user-review my-center">
-            <div class = "my-rating-stars">
-              <% str = '<i class="fa fa-star"></i>' * comment.rating%>
-              <%# str = '<i class="fas fa-star"></i>'.html_safe%>
-              <%= str.html_safe %>
-            </div>
-            User #<%= comment.user_id %> said:
-            <%= comment.body %>
-          </div>
-        <% end%>
-        <% else %>
-            <p>Sorry, no user reviews yet.</p>
-      <% end %>
+      <%= render 'comments' %>
+      <% else %>
+      <p>Sorry, no user reviews yet.</p>
+      <% end%>
     </div>
-
-  </div>   <!-- end column -->
+  </div> <!-- end column -->
 
 </div> <!-- end row -->
-
-<div class = "my-nav-buttons">
-  <%= link_to 'Edit', edit_product_path(@product), class: "btn-sm btn-light" %> |
-  <%= link_to 'Back', products_path, class: "btn-sm btn-light" %>
-</div>

@@ -84,6 +84,9 @@ $myGray1: #f8f9fa;
 padding: 1em;
 }
 
-.my-rating-stars {
- color: yellow;
+.my-rating-wrapper {
+  display: inline-block;
+}
+.rating {
+  display: inline-block;
 }
