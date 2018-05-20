@@ -4,11 +4,13 @@
   <div class = "col-md-6">
     <div class="card my-show-card">
 
-      <%= begin
-        image_tag(@product.image_url, :class => "my-show-image")
-      rescue
-        image_tag("no-image.gif", :class => "my-show-image")
-      end %>
+      <div class = "my-show-image-wrapper">
+        <%= begin
+          image_tag(@product.image_url, :class => "my-show-image")
+        rescue
+          image_tag("no-image.gif", :class => "my-show-image")
+        end %>
+      </div>
 
       <div class="card-body">
         <h5 class="card-title"> <%= @product.name %></h5>

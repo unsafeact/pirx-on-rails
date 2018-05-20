@@ -75,6 +75,10 @@ $myGray1: #f8f9fa;
   margin-bottom: 2em;
 }
 
+.my-show-image-wrapper {
+  margin: 0 auto;
+}
+
 .my-show-image {
   max-width: 100%;
   height: auto;
@@ -87,6 +91,7 @@ $myGray1: #f8f9fa;
 .my-rating-wrapper {
   display: inline-block;
 }
+
 .rating {
   display: inline-block;
 }
