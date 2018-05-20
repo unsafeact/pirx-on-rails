@@ -3,7 +3,7 @@
 <div class = "row">
 
   <div class = "my-products">
-    <% @products.each do |product| %>
+       <% @products.each do |product| %>
     <%= render partial: 'shared/my-product-card', locals: {myProduct: product, includeButtons: true} %>
     <% end %>
 
@@ -11,12 +11,10 @@
 </div>
 
 <div class = "">
-<!-- <div class = "my-new-product-btn"> -->
   <%= link_to('Create a new product', new_product_path, :class => "btn btn-light", :id =>"myNewProductBtn") %>
 </div>
 
 <div class = "my-product-table">
-  <!-- <a class="my-btn my-btn--large" data-toggle="collapse" href="#myTableWrapper" role="button" aria-expanded="false" aria-controls="collapseExample"> -->
   <a class="btn btn-light" data-toggle="collapse" href="#myTableWrapper" role="button" aria-expanded="false" aria-controls="collapseExample">
     Toggle all products table
   </a>
