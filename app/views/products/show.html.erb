@@ -1,5 +1,3 @@
-<!-- <p id="notice"><%= notice %></p> -->
-
 <div class = "row">
   <div class = "col-md-6">
     <div class="card my-show-card">
@@ -62,7 +60,7 @@
   <div class = "col-md-6">
     <h2> User reviews </h2>
     <div class = "my-user-review">
-      <% if @product.comments.present?%>
+      <% if @product.comments.exists?%>
       <%= render 'comments' %>
       <% else %>
       <p>Sorry, no user reviews yet.</p>
