@@ -22,9 +22,10 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Use jQuery***
 gem 'jquery-rails'
-
 # Use Popper
 gem 'popper_js', '~> 1.12.9'
+gem 'will_paginate', '~> 3.1.0'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
