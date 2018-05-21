@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Users</h1>
 
 <table class="my-table" id = "myUsersTable">
@@ -9,6 +7,7 @@
       <th>First name</th>
       <th>Last name</th>
       <th>Email</th>
+      <th>Admin</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,6 +18,10 @@
     <td><%= user.first_name %></td>
     <td><%= user.last_name %></td>
     <td><%= user.email %></td>
+    <td> <% if user.admin %>
+           <%= 'Yes' %>
+         <% end %>
+    </td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <!-- <td><%= link_to 'Edit', edit_user_registration_path(user) %></td> -->

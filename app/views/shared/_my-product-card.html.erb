@@ -1,5 +1,11 @@
 <div class="card my-card">
 
+  <div class = "my-product-image-wrapper">
+
+    <div class = "my-rating-overlay">
+       <div class="rated" data-score="<%= myProduct.average_rating %>"></div>
+    </div>
+
   <% begin
        myImage = image_tag(myProduct.image_url)
      rescue
@@ -12,10 +18,13 @@
        myImage = image_tag("no-image.gif", class: "card-img-top my-product-image")
      end %>
 
-
   <%= link_to(myImage, myProduct) %>
 
+</div>
+
+
   <div class="card-body  my-product-description">
+
     <h5 class = "my-truncate" data-toggle ="tooltip" data-placement="right" title = "<%=myProduct.name%>">
     <%= link_to(myProduct.name, myProduct, :class=>"card-title" )%></h5>
 
