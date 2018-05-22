@@ -1,6 +1,18 @@
-<h2>Log in</h2>
+<h2>Log in or sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+  <%- if devise_mapping.registerable?%>
+  </br>
+  <div>
+    <p>If you do not have an account, you must create one first:</p>
+    <div class="actions">
+      <%= link_to "Create new account", new_registration_path(resource_name), class: "btn btn-small btn-light" %><br />
+    </div>
+  </br>
+    <p>Otherwise login:</p>
+  </div>
+  <% end -%>
 
 <div class="row">
   <div class="form-group col-md-6">
@@ -18,33 +30,19 @@
 
 <div class="row">
   <% if devise_mapping.rememberable? -%>
-    <div class="form-group col-md-6">
-      <%= f.check_box :remember_me, class: "form-check-input my-login-checkbox" %>
-      <%= f.label :remember_me, class: "form-check-label my-login-checkbox" %>
-    </div>
+  <div class="form-group col-md-6">
+    <%= f.check_box :remember_me, class: "form-check-input my-login-checkbox" %>
+    <%= f.label :remember_me, class: "form-check-label my-login-checkbox" %>
+  </div>
   <% end -%>
 </div>
 
 
-<div class="row">
- <div class="actions my-margin-left">
-    <%= f.submit "Log in", class: "form_label btn btn-light", id: "myLoginBtn" %>
-  </div>
+<div class="actions">
+  <%= f.submit "Log in", class: "form_label btn btn-light", id: "myLoginBtn" %>
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords'%>
+  <%= link_to "Forgot your password?", new_password_path(resource_name), class: "btn btn-link" %><br />
+  <% end -%>
 </div>
 
 <% end %>
-
-<%#= render "devise/shared/links" %>
-
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <div class="row">
-    <%= link_to "Forgot your password?", new_password_path(resource_name), class: "btn btn-link" %><br />
-  </div>
-<% end -%>
-
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <div class="row">
-    <%= link_to "Sign up if you do not have an account!", new_registration_path(resource_name), class: "btn btn-link" %><br />
-  </div>
-
-<% end -%>
