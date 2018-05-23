@@ -10,6 +10,8 @@
   </div>
 </div>
 
+<% if user_signed_in? && current_user.admin?%>
+
 <div>
   <%= link_to('Create a new product', new_product_path, :class => "btn btn-light", :id =>"myNewProductBtn") %>
 </div>
@@ -48,3 +50,5 @@
     </table>
   </div> <!-- tabble wrapper -->
 </div> <!-- my-product-table -->
+
+<% end %>

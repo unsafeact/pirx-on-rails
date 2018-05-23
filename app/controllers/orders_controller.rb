@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
 
   # CanCanCan helper
   load_and_authorize_resource
-  
+
   def index
     @orders = Order.includes(:product).all
   end

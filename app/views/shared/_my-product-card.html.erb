@@ -50,8 +50,12 @@
     <%if includeButtons%>
       <div class = "my-right">
         <%= link_to('Show', myProduct, :class=>"my-btn my-btn--small" )%>
+
+        <% if user_signed_in? && current_user.admin?%>
         <%= link_to('Edit', edit_product_path(myProduct), :class=>"my-btn my-btn--small" )%>
         <%= link_to('Destroy', myProduct, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"my-btn my-btn--small" )%>
+        <%end%>
+
       </div>
     <%end%>
 

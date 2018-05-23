@@ -51,7 +51,9 @@
     </div>
 
     <div class = "my-nav-buttons">
+      <% if user_signed_in? && current_user.admin?%>
       <%= link_to 'Edit', edit_product_path(@product), class: "btn-sm btn-light" %> |
+      <% end %>
       <%= link_to 'Back', products_path, class: "btn-sm btn-light" %>
     </div>
 
