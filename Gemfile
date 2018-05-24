@@ -75,3 +75,6 @@ gem 'devise'
 
 # Use CanCanCan for authorization
 gem 'cancancan', '~> 1.10'
+
+# For functional tests
+gem 'rails-controller-testing'
