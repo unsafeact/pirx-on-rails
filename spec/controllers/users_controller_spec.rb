@@ -1,9 +1,9 @@
 require 'rails_helper'
+
 describe UsersController, type: :controller do
 
-  let(:user) { User.create!(email: "newbie@new.bie", password: "123456", confirmed_at: DateTime.now) }
-  let(:anotheruser) { User.create!(email: "anothernewbie@new.bie", password: "123456", confirmed_at: DateTime.now) }
-
+  let(:user) { FactoryBot.create(:user) }
+  let(:anotheruser) { FactoryBot.create(:user) }
 
   describe 'GET #show' do
 
@@ -22,7 +22,7 @@ describe UsersController, type: :controller do
         get :show, params: { id: anotheruser.id }
         expect(response).to have_http_status(302)
         expect(response).to redirect_to root_url
-        # follow_redirect!
+        # follow_redirect!                         <===========================
         # expect(response).to have_http_status(401)
       end
     end

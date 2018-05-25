@@ -3,48 +3,48 @@ require "cancan/matchers"
 
 describe User do
 
-  let(:user) { User.create!(email: "newbie@new.bie", password: "123456", confirmed_at: DateTime.now) }
-  let(:ability) {Ability.new(user)}
+  let(:default_user) { FactoryBot.build(:user) }
+  let(:admin_user) { FactoryBot.build(:admin) }
+  let(:invalid_user) { FactoryBot.build(:user, email: "not_an_email")}
+  let(:default_ability) {Ability.new(default_user)}
+  let(:admin_ability) {Ability.new(admin_user)}
 
-  it "is not an admin" do
-    expect(user.admin).to be false
-  end
-
-  it "is not an admin" do
-    expect(user.admin).to be false
+  it "should not validate users without an email address" do
+    expect(invalid_user).to_not be_valid
   end
 
   it "can manage own account" do
-    expect(ability).to be_able_to(:manage, user)
+    expect(default_ability).to be_able_to(:manage, default_user)
   end
 
   context "when is not an admin" do
 
+    it "is not an admin" do
+      expect(default_user.admin).to be false
+    end
+
     it "cannot manage Products" do
-      expect(ability).to_not be_able_to(:manage, Product.new)
+      expect(default_ability).to_not be_able_to(:manage, Product.new)
     end
 
     it "cannot destroy Comments" do
-      expect(ability).to_not be_able_to(:destroy, Comment.new)
+      expect(default_ability).to_not be_able_to(:destroy, Comment.new)
     end
 
   end
 
   context "when is an admin" do
 
-    let(:adminuser) { User.create!(email: "newbie@new.bie", password: "123456", confirmed_at: DateTime.now, admin: true )}
-    let(:ability) {Ability.new(adminuser)}
-
     it "is an admin" do
-      expect(adminuser.admin).to be true
+      expect(admin_user.admin).to be true
     end
 
     it "can manage Products" do
-      expect(ability).to be_able_to(:manage, Product.new)
+      expect(admin_ability).to be_able_to(:manage, Product.new)
     end
 
     it "can destroy Comments" do
-      expect(ability).to be_able_to(:destroy, Comment.new)
+      expect(admin_ability).to be_able_to(:destroy, Comment.new)
     end
 
   end

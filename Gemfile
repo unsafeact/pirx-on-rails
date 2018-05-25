@@ -53,6 +53,8 @@ group :development, :test do
   gem 'sqlite3'
   # TDD library
   gem 'rspec-rails', '~> 3.7'
+  # Test data factory
+  gem "factory_bot_rails", "~> 4.0"
 end
 
 group :development do
