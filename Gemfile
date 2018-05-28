@@ -80,3 +80,6 @@ gem 'cancancan', '~> 1.10'
 
 # For functional tests
 gem 'rails-controller-testing'
+
+# Credit card payments with stripe
+gem 'stripe'
