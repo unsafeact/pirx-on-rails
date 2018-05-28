@@ -42,11 +42,16 @@
         <hr>
         <div id = "myPaymentForm">
           <% if @product.price.present? %>
-            <%= form_with(url: '/payments/create') do |form| %>
-              <%= render partial: "shared/stripe_checkout_button" %>
-              <%= hidden_field_tag(:hidden_product_id, @product.id) %>
+            <% if user_signed_in? %>
+                <%= form_with(url: '/payments/create') do |form| %>
+                <%= render partial: "shared/stripe_checkout_button" %>
+                <%= hidden_field_tag(:hidden_product_id, @product.id) %>
+                <% end %>
+              <% else %>
+                <%= link_to 'Login to buy!', new_user_session_path, class: "btn btn-primary", id: "myLoginToBuyBtn" %>
             <% end %>
           <% end %>
+
 
         </div>
 
