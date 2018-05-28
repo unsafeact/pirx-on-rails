@@ -13,9 +13,10 @@ class PaymentsController < ApplicationController
         amount: (@product.price * 100).to_i, # amount in cents, again
         currency: "eur",
         source: token,
-        description: params[:stripeEmail] # according to Course material
+        # description: params[:stripeEmail] # ??? according to Course material
+        description: @product.name, # according to Course material
         # "receipt_email: 'jenny.rosen@example.com'" example from Stripe docs to override the default customer email address
-        # receipt_email: params[:stripeEmail]
+        receipt_email: params[:stripeEmail]
       )
 
       if charge.paid
@@ -30,7 +31,7 @@ class PaymentsController < ApplicationController
     end
 
     redirect_to product_path(@product)
-    flash[:notice] = "Your order has been placed!"
+    flash[:notice] = "Thank you! Your order has been placed!"
 
   end
 
