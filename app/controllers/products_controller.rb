@@ -13,6 +13,8 @@ class ProductsController < ApplicationController
     else
       @products = Product.all.order('created_at ASC')
     end
+    logger.debug "––– User signed in?: #{user_signed_in?}"
+
   end
 
   # GET /products/1
