@@ -83,3 +83,6 @@ gem 'rails-controller-testing'
 
 # Credit card payments with stripe
 gem 'stripe'
+
+# Security tests
+gem "brakeman"

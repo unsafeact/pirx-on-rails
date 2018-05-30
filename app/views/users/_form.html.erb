@@ -1,5 +1,6 @@
 <%= form_with(model: user, local: true) do |form| %>
 <% if user.errors.any? %>
+
 <div class = "my-error-explanation">
 <p><%=fa_stacked_icon "exclamation-triangle", base: "square-o"%>
 <%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</p>

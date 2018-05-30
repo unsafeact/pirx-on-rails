@@ -13,9 +13,7 @@ class PaymentsController < ApplicationController
         amount: (@product.price * 100).to_i, # amount in cents, again
         currency: "eur",
         source: token,
-        # description: params[:stripeEmail] # ??? according to Course material
-        description: @product.name, # according to Course material
-        # "receipt_email: 'jenny.rosen@example.com'" example from Stripe docs to override the default customer email address
+        description: @product.name,
         receipt_email: params[:stripeEmail]
       )
 
