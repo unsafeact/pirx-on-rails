@@ -4,9 +4,9 @@
 
       <div class = "my-show-image-wrapper">
         <%= begin
-          image_tag(@product.image_url, :class => "my-show-image")
+          image_tag(@product.image_url, class: "my-show-image img-zoom", data_zoom_image: @product.image_url)
         rescue
-          image_tag("no-image.gif", :class => "my-show-image")
+          image_tag("no-image.gif", class: "my-show-image img-zoom")
         end %>
       </div>
 
@@ -71,6 +71,7 @@
   </div>   <!-- end column -->
 
   <div class = "col-md-6">
+
     <h2> User reviews </h2>
     <div class = "my-user-review">
       <% if @product.comments.exists?%>

@@ -35,4 +35,14 @@ $(document).on('turbolinks:load', function(){
       el.classList.add("my-badge-ani");
     });
 
+    $(".img-zoom").elevateZoom({
+     zoomType				: "lens",
+     lensShape : "round",
+     lensSize    : 200
+   });
+
+   var myMap = new Datamap({element: document.getElementById('myMap'),responsive: true});
+   var allCountryCodes = getAllCountryCodes();
+
+
   });
