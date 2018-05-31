@@ -17,6 +17,7 @@
 //= require jquery3
 //= require jquery.raty.js
 //= require jquery.elevateZoom-3.0.8.min
+//= require jquery.drawsvg.js
 //= require_tree .
 
 $(document).ready(function(){

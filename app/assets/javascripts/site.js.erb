@@ -41,8 +41,9 @@ $(document).on('turbolinks:load', function(){
      lensSize    : 200
    });
 
-   var myMap = new Datamap({element: document.getElementById('myMap'),responsive: true});
-   var allCountryCodes = getAllCountryCodes();
+   var $svg = $('svg').drawsvg({duration: 10000});
+   $svg.drawsvg('animate');
 
+   $("#myAboutText").fadeIn(5000).removeClass('hidden').fadeOut(5000).addClass('hidden');
 
   });
