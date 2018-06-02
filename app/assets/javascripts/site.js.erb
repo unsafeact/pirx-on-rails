@@ -1,49 +1,60 @@
-$(document).on('turbolinks:load', function(){
-    $('.rating').raty({
-      starHalf: '<%= image_url("star-half.png") %>',
-      starOff: '<%= image_url("star-off.png") %>',
-      starOn: '<%= image_url("star-on.png") %>',
-      scoreName: 'comment[rating]'
-    });
+var refreshRating = function() {
 
-    $('.rated').raty({
-      starHalf: '<%= image_url("star-half.png") %>',
-      starOff: '<%= image_url("star-off.png") %>',
-      starOn: '<%= image_url("star-on.png") %>',
-      readOnly: true,
-      score: function() {
-        return $(this).attr('data-score');
-      }
-    });
-
-    $("#new_comment").on('submit', function(){
-      r = $(".rating").raty('score');
-      if (typeof r === "undefined") {
-          $('.my-rating-wrapper').tooltip("show")
-          return false;
-      }
-    });
-
-    $('.carousel').carousel() // "manual" auto start
-
-    // Awkward way to restart the CSS animation...
-    $("#myProductCarousel").on('slide.bs.carousel', function () {
-      // restart animation
-      var el = document.getElementById('featuredBadge');
-      el.classList.remove("my-badge-ani");
-      void el.offsetWidth;
-      el.classList.add("my-badge-ani");
-    });
-
-    $(".img-zoom").elevateZoom({
-     zoomType				: "lens",
-     lensShape : "round",
-     lensSize    : 200
-   });
-
-   var $svg = $('svg').drawsvg({duration: 10000});
-   $svg.drawsvg('animate');
-
-   $("#myAboutText").fadeIn(5000).removeClass('hidden').fadeOut(5000).addClass('hidden');
-
+  $('.rating').raty({
+    starHalf: '<%= image_url("star-half.png") %>',
+    starOff: '<%= image_url("star-off.png") %>',
+    starOn: '<%= image_url("star-on.png") %>',
+    scoreName: 'comment[rating]'
   });
+
+  $('.rated').raty({
+    starHalf: '<%= image_url("star-half.png") %>',
+    starOff: '<%= image_url("star-off.png") %>',
+    starOn: '<%= image_url("star-on.png") %>',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+
+}; // end var refreshRating
+
+// -----------------------------------------------------------------------------
+
+$(document).on('turbolinks:load', function(){
+
+  refreshRating()
+
+  $("#myNoReviewsMsg").toggle(!$('.my-user-comment').length);
+
+  $("#new_comment").on('submit', function(){
+    r = $(".rating").raty('score');
+    if (typeof r === "undefined") {
+      $('.my-rating-wrapper').tooltip("show")
+      return false;
+    }
+  });
+
+  $('.carousel').carousel(); // "manual" auto start
+
+  // Awkward way to restart the CSS animation...
+  $("#myProductCarousel").on('slide.bs.carousel', function () {
+    // restart animation
+    var el = document.getElementById('featuredBadge');
+    el.classList.remove("my-badge-ani");
+    void el.offsetWidth;
+    el.classList.add("my-badge-ani");
+  });
+
+  $(".img-zoom").elevateZoom({
+    zoomType				: "lens",
+    lensShape : "round",
+    lensSize    : 200
+  });
+
+  var $svg = $('svg').drawsvg({duration: 10000});
+  $svg.drawsvg('animate');
+
+  $("#myAboutText").fadeIn(5000).removeClass('hidden').fadeOut(5000).addClass('hidden');
+
+}); // end ($document).on('turbolinks...
