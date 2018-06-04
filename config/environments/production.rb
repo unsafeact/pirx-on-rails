@@ -105,4 +105,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'pirx-on-rails.herokuapp.com' }
 
+  config.cache_store = :dalli_store
+  # config.action_controller.perform_caching = false
+
 end

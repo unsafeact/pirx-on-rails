@@ -1,0 +1,67 @@
+<% cache product do %>
+
+<div class="card my-card">
+
+  <div class = "my-product-image-wrapper">
+
+    <div class = "my-rating-overlay">
+      <div class="rated" data-score="<%= product.average_rating %>"></div>
+    </div>
+
+    <% begin
+         myImage = image_tag(product.image_url)
+       rescue
+         myImage = image_tag("no-image.gif", class: "card-img-top my-product-image")
+       else
+         myImage = image_tag(product.image_url, class: "card-img-top my-product-image")
+       end %>
+
+    <% if product.image_url.blank?
+      myImage = image_tag("no-image.gif", class: "card-img-top my-product-image")
+    end %>
+
+    <%= link_to(myImage, product) %>
+
+  </div> <!-- end  my-product-image-wrapper-->
+
+  <div class="card-body  my-product-description">
+
+    <h5 class = "my-truncate" data-toggle ="tooltip" data-placement="right" title = "<%=product.name%>">
+    <%= link_to(product.name, product, :class=>"card-title" )%></h5>
+
+    <p class="card-text my-truncate" data-toggle ="tooltip" data-placement="right" title = "<%= product.description %>">
+    <%= product.description %></p>
+
+    <%if !product.colour.present?
+      product.colour = "unknown"
+    end%>
+
+    <p class="card-text"><%= product.colour %> colour</p>
+
+    <hr>
+
+    <%if !product.price.present?
+      postfix = " currently sold"
+    else
+      postfix = " EUR"
+    end%>
+
+    <p class="card-text"><%= product.price.to_s  +  postfix%></p>
+
+    <%if includeButtons%>
+      <div class = "my-right">
+        <%= link_to('Show', product, :class=>"my-btn my-btn--small" )%>
+
+        <% if user_signed_in? && current_user.admin?%>
+        <%= link_to('Edit', edit_product_path(product), :class=>"my-btn my-btn--small" )%>
+        <%= link_to('Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"my-btn my-btn--small" )%>
+        <%end%>
+
+      </div>
+    <% end %>
+
+  </div> <!-- end card-body -->
+
+</div> <!-- end card -->
+
+<% end %>

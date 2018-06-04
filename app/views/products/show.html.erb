@@ -2,6 +2,8 @@
   <div class = "col-md-6">
     <div class="card my-show-card">
 
+    <% cache @product do %>
+
       <div class = "my-show-image-wrapper">
         <%= begin
           image_tag(@product.image_url, class: "my-show-image img-zoom", data_zoom_image: @product.image_url)
@@ -52,8 +54,11 @@
             <% end %>
           <% end %>
         </div>
-      </div>
-    </div>
+      </div> <!-- end card body-->
+
+      <% end %>
+
+    </div> <!-- end card-->
 
     <div class = "row">
       <div class = "col-md-6">

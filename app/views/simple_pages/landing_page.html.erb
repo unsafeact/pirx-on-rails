@@ -31,7 +31,7 @@
       <div class="carousel-inner">
         <% @products.each do |product| %>
         <div class="carousel-item<%= " active" if product == @products.first %>">
-          <%= render partial: 'shared/my-product-card', locals: {myProduct: product, includeButtons: false} %>
+          <%= render partial: 'shared/product', object: product, locals: {includeButtons: false} %>
         </div>
         <% end %>
       </div>

@@ -1,11 +1,13 @@
 <h1>See all of our cobwebs!</h1>
 
 <div class = "row">
+    <div class = "my-products">
 
-  <div class = "my-products">
-       <% @products.each do |product| %>
-    <%= render partial: 'shared/my-product-card', locals: {myProduct: product, includeButtons: true} %>
-    <% end %>
+      <% cache(cache_key_for_products) do %>
+        <% @products.each do |product| %>
+          <%= render partial: 'shared/product', object: product, locals: {includeButtons: true} %>
+        <% end %>
+      <% end %>
 
   </div>
 </div>

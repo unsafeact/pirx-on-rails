@@ -86,3 +86,7 @@ gem 'stripe'
 
 # Security tests
 gem "brakeman"
+
+# caching
+gem 'dalli'
+gem 'memcachier'
