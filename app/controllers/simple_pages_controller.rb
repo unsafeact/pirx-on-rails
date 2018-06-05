@@ -1,10 +1,12 @@
 class SimplePagesController < ApplicationController
+  # include SimplePagesHelper
 
   def index
   end
 
   def landing_page
     @products = Product.limit(4)
+    # @products = get_featured_products
   end
 
   def before_landing
