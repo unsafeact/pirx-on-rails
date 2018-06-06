@@ -61,4 +61,7 @@ Rails.application.configure do
 
   # make sure dynamic links generate the right URLs
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
+  # use plain javascript instead of coffeescript default
+  config.app_generators.javascript_engine = :javascript
 end

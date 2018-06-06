@@ -78,6 +78,8 @@
   <div class = "col-md-6">
     <h2> User reviews </h2>
 
+    <div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
+
     <div class = "my-user-review">
       <% if @product.comments.exists?%>
       <%= render 'comments' %>

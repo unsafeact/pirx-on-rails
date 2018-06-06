@@ -108,4 +108,7 @@ Rails.application.configure do
   config.cache_store = :dalli_store
   # config.action_controller.perform_caching = false
 
+  config.web_socket_server_url = "wss://pirx-on-rails.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://pirx-on-rails.herokuapp.com', 'http://pirx-on-rails.herokuapp.com']
+
 end
