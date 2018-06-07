@@ -46,7 +46,7 @@
           <% if @product.price.present? %>
             <% if user_signed_in? %>
                 <%= form_with(url: '/payments/create') do |form| %>
-                <%#= render partial: "shared/stripe_checkout_button" %>
+                <%= render partial: "shared/stripe_checkout_button" %>
                 <%= hidden_field_tag(:hidden_product_id, @product.id) %>
                 <% end %>
             <% else %>
