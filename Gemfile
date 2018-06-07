@@ -91,6 +91,3 @@ gem "brakeman"
 gem 'dalli'
 gem 'memcachier'
 gem 'redis-rails'
-
-# analytics
-gem 'newrelic_rpm'

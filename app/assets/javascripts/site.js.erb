@@ -22,7 +22,7 @@ var refreshRating = function() {
 // -----------------------------------------------------------------------------
 $(document).on('turbolinks:load ajax:success', function(){
 
-  refreshRating()
+ refreshRating()
 
   $("#myNoReviewsMsg").toggle(!$('.my-user-comment').length);
 
