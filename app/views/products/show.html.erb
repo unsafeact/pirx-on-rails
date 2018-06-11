@@ -42,18 +42,15 @@
 
         <p>Average Rating: <div class="rated" id = "myAverageRating" data-score="<%= @product.average_rating %>"></div> </p>
         <hr>
-        <div id = "myPaymentForm">
-          <% if @product.price.present? %>
-            <% if user_signed_in? %>
-                <%= form_with(url: '/payments/create') do |form| %>
-                <%= render partial: "shared/stripe_checkout_button" %>
-                <%= hidden_field_tag(:hidden_product_id, @product.id) %>
-                <% end %>
-            <% else %>
-                <%= link_to 'Login to buy!', new_user_session_path, class: "btn btn-primary", id: "myLoginToBuyBtn" %>
-            <% end %>
-          <% end %>
-        </div>
+        <% if @product.price.present? %>
+          <div id = "myPaymentDiv">
+            <%= render partial: "shared/stripe_checkout_button" %>
+            <p>Be sure to
+            <%= link_to 'login', new_user_session_path, class: "my-link", id: "myLoginToBuyBtn" %>
+            first.</p>
+          </div>
+        <% end %>
+
       </div> <!-- end card body-->
 
       <% end %>
