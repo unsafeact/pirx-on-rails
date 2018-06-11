@@ -11,7 +11,7 @@ class Ability
       can :manage, Product
       can :destroy, Comment
     else
-      can :manage, User, id: user.id
+      can [:edit, :update, :destroy], User, id: user.id
       can :read, Product
       can :manage, Order, user_id: user.id
     end

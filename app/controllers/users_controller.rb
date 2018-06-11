@@ -22,7 +22,11 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    if current_user.admin?
+      @user = User.new
+    else
+      redirect_to root_path, notice: "That's no place for you!"
+    end
   end
 
   # GET /users/1/edit
@@ -32,6 +36,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+
     @user = User.new(user_params)
     @user.confirmed_at = DateTime.now # to prevent email confirmation
 
@@ -71,8 +76,11 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      # format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.html { redirect_to users_path, notice: 'User was successfully destroyed.' }
+      if current_user.admin?
+        format.html { redirect_to users_path, notice: 'User was successfully destroyed.' }
+      else
+        format.html { redirect_to root_path, notice: 'Hope to see again, bye bye!' }
+      end
       format.json { head :no_content }
     end
   end
