@@ -9,6 +9,8 @@ class Comment < ApplicationRecord
 
   after_create_commit { CommentUpdateJob.perform_later(self, self.user) }
 
-  scope :rating_desc, -> { order(rating: :desc) }
+  ###### unused
+  # scope :rating_desc, -> { order(rating: :desc) }
+  ######
 
 end

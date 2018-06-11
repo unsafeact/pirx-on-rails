@@ -72,6 +72,10 @@ group :production do
   gem 'pg'
 end
 
+group :test do
+end
+
+
 # Use devise for user authentication
 gem 'devise'
 

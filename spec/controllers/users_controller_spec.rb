@@ -22,7 +22,7 @@ describe UsersController, type: :controller do
         get :show, params: { id: anotheruser.id }
         expect(response).to have_http_status(302)
         expect(response).to redirect_to root_url
-        # follow_redirect!                         <===========================
+        # follow_redirect!                               <===== does not work!?
         # expect(response).to have_http_status(401)
       end
     end
