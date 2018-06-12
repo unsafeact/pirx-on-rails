@@ -23,13 +23,15 @@
   <%if orders.present?%>
     <ol class="list-group" id = "myUserOrdersList">
       <% orders.each_with_index do |order, index|%>
-        <li class="list-group-item"><%= link_to(orders[index].product.name, order_path(order))%></li>
+        <li class="list-group-item my-orders-list"><%= link_to(orders[index].product.name, order_path(order))%></li>
       <%end%>
     </ol>
   <%end%>
 </p>
 
 <div class = "my-nav-buttons">
-  <%= link_to 'Back', users_path, class: "btn-sm btn-light" %> |
-  <%= link_to 'Edit', edit_user_path(@user), class: "btn-sm btn-light" %>
+  <%= link_to 'Back', users_path, class: "btn-sm btn-light" %>
+  <%#= link_to 'Edit', edit_user_path(@user), class: "btn-sm btn-light" %>
+  <%= link_to fa_icon("edit")+" Edit", edit_user_path(@user), class: "btn-sm btn-light" %>
+
 </div>
