@@ -18,7 +18,9 @@ class PaymentsController < ApplicationController
       )
 
       if charge.paid
+        logger.debug "--------------------- N orders: " + Order.all.size.to_s
         Order.create(user_id: @user.id, product_id: @product.id, total: @product.price)
+        logger.debug "--------------------- N+1 orders: " + Order.all.size.to_s
       end
 
     rescue Stripe::CardError => e
