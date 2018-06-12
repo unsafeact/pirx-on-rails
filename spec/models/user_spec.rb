@@ -14,7 +14,10 @@ describe User do
   end
 
   it "can manage own account" do
-    expect(default_ability).to be_able_to(:manage, default_user)
+    expect(default_ability).to be_able_to(:read, default_user)
+    expect(default_ability).to be_able_to(:edit, default_user)
+    expect(default_ability).to be_able_to(:update, default_user)
+    expect(default_ability).to be_able_to(:destroy, default_user)
   end
 
   context "when is not an admin" do
